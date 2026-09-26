@@ -4,7 +4,10 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import twilio from 'twilio';
 import { GoogleGenAI } from '@google/genai';
-import { RtcTokenBuilder, Role } from 'agora-token';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const { RtcTokenBuilder, Role } = require('agora-token');
 
 const app = express();
 const PORT = Number(process.env.PORT || 10000);
